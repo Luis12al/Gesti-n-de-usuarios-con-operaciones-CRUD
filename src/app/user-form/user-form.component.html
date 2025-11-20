@@ -1,0 +1,24 @@
+<h2>Registrar Usuario</h2>
+
+<form (ngSubmit)="guardar()">
+
+  <label>Nombres:</label>
+  <input type="text" [(ngModel)]="usuario.nombres" name="nombres" required>
+
+  <label>Primer Apellido:</label>
+  <input type="text" [(ngModel)]="usuario.primerApellido" name="primerApellido" required>
+
+  <label>Segundo Apellido:</label>
+  <input type="text" [(ngModel)]="usuario.segundoApellido" name="segundoApellido" required>
+
+  <label>Teléfono:</label>
+  <input type="text" [(ngModel)]="usuario.telefono" name="telefono" required>
+
+  <label>Email:</label>
+  <input type="email" [(ngModel)]="usuario.email" name="email" required>
+
+  <label>Fecha de Nacimiento:</label>
+  <input type="date" [(ngModel)]="usuario.fechaNacimiento" name="fechaNacimiento" required>
+
+  <button type="submit">Guardar</button>
+</form>

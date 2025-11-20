@@ -1,11 +1,18 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
+import { UserFormComponent } from './user-form/user-form.component';
+import { UserTableComponent } from './user-table/user-table.component';
+
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [
+    UserFormComponent,
+    UserTableComponent
+  ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   title = 'firebase-app';

@@ -1,0 +1,29 @@
+<table border="1" style="width:100%; text-align:left;">
+  <thead>
+    <tr>
+      <th>Nombres</th>
+      <th>Primer Apellido</th>
+      <th>Segundo Apellido</th>
+      <th>Teléfono</th>
+      <th>Email</th>
+      <th>Fecha Nac.</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let u of usuarios">
+      <td>{{ u.nombres }}</td>
+      <td>{{ u.primerApellido }}</td>
+      <td>{{ u.segundoApellido }}</td>
+      <td>{{ u.telefono }}</td>
+      <td>{{ u.email }}</td>
+      <td>{{ u.fechaNacimiento }}</td>
+
+      <td>
+        <button (click)="editar(u)">Editar</button>
+        <button (click)="eliminar(u.id)">Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,22 +1,35 @@
-import {Injectable} from '@angular/core';
-import {Firestore, collection, collectionData, addDoc} from '@angular/fire/firestore';
-import {Observable} from 'rxjs';
+import { Injectable } from '@angular/core';
+import { Firestore, collection, addDoc, collectionData, doc, updateDoc, deleteDoc } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 
-
-@Injectable({providedIn: 'root'})
+@Injectable({
+  providedIn: 'root'
+})
 export class UsuariosService {
 
-    private usuariosCollection : any;
+  private coleccion = 'usuarios';
 
-    constructor(private firestore : Firestore) {
-        this.usuariosCollection = collection(this.firestore, 'usuarios');        
-    }
+  constructor(private firestore: Firestore) {}
 
-    crearUsuario(data: any) {
-      return addDoc(this.usuariosCollection, data);
-    }
-    
-    obtenerUsuarios() {
-      return collectionData(this.usuariosCollection, { idField: 'id' }) as Observable<any[]>;
-    }
+
+  crearUsuario(usuario: any) {
+    const usuariosRef = collection(this.firestore, this.coleccion);
+    return addDoc(usuariosRef, usuario);
+  }
+
+
+  obtenerUsuarios(): Observable<any[]> {
+    const usuariosRef = collection(this.firestore, this.coleccion);
+    return collectionData(usuariosRef, { idField: 'id' });
+  }
+
+  actualizarUsuario(id: string, usuario: any) {
+    const usuarioRef = doc(this.firestore, `${this.coleccion}/${id}`);
+    return updateDoc(usuarioRef, usuario);
+  }
+
+  eliminarUsuario(id: string) {
+    const usuarioRef = doc(this.firestore, `${this.coleccion}/${id}`);
+    return deleteDoc(usuarioRef);
+  }
 }
