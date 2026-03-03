@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],   // ← NECESARIO para *ngFor y *ngIf
   templateUrl: './user-table.component.html',
+  styleUrls: ['./user-table.component.css']
 })
 
 export class UserTableComponent implements OnInit {

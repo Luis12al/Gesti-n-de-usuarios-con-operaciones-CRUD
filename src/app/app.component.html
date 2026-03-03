@@ -1,7 +1,25 @@
-<h1 style="text-align:center;">Gestión de Usuarios</h1>
+<div class="app-shell">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
 
-<app-user-form></app-user-form>
+  <header class="app-header">
+    <div class="header-badge">
+      <span class="badge-dot"></span>
+      <span>Sistema de usuarios</span>
+    </div>
+    <h1>Gestión de Usuarios</h1>
+    <p class="app-subtitle">Registra, consulta y administra los usuarios del sistema</p>
+  </header>
 
-<hr>
+  <section class="app-section">
+    <app-user-form></app-user-form>
+  </section>
 
-<app-user-table></app-user-table>
+  <div class="section-separator">
+    <span>Directorio</span>
+  </div>
+
+  <section class="app-section">
+    <app-user-table></app-user-table>
+  </section>
+</div>

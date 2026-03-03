@@ -1,24 +1,179 @@
-<h2>Registrar Usuario</h2>
+<div class="form-shell">
 
-<form (ngSubmit)="guardar()">
+  <!-- Ambient orbs -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
 
-  <label>Nombres:</label>
-  <input type="text" [(ngModel)]="usuario.nombres" name="nombres" required>
+  <div class="form-card">
 
-  <label>Primer Apellido:</label>
-  <input type="text" [(ngModel)]="usuario.primerApellido" name="primerApellido" required>
+    <!-- Top accent bar -->
+    <div class="card-accent"></div>
 
-  <label>Segundo Apellido:</label>
-  <input type="text" [(ngModel)]="usuario.segundoApellido" name="segundoApellido" required>
+    <!-- Header -->
+    <header class="form-header">
+      <div class="header-badge">
+        <span class="badge-dot"></span>
+        <span>Nuevo registro</span>
+      </div>
+      <h2>Registrar Usuario</h2>
+      <p class="form-subtitle">Completa los datos del nuevo usuario en el sistema</p>
+    </header>
 
-  <label>Teléfono:</label>
-  <input type="text" [(ngModel)]="usuario.telefono" name="telefono" required>
+    <!-- Divider -->
+    <div class="section-divider">
+      <span class="divider-label">Información personal</span>
+    </div>
 
-  <label>Email:</label>
-  <input type="email" [(ngModel)]="usuario.email" name="email" required>
+    <form (ngSubmit)="guardar()" #userForm="ngForm">
 
-  <label>Fecha de Nacimiento:</label>
-  <input type="date" [(ngModel)]="usuario.fechaNacimiento" name="fechaNacimiento" required>
+      <!-- Nombres — full row -->
+      <div class="field-group field-full">
+        <div class="input-wrapper">
+          <input
+            type="text"
+            id="nombres"
+            [(ngModel)]="usuario.nombres"
+            name="nombres"
+            required
+            placeholder=" "
+            autocomplete="given-name"
+          />
+          <label for="nombres">Nombres completos</label>
+          <div class="input-line"></div>
+          <span class="input-icon">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M10 10a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/>
+              <path d="M3 18c0-3.314 3.134-6 7-6s7 2.686 7 6"/>
+            </svg>
+          </span>
+        </div>
+      </div>
 
-  <button type="submit">Guardar</button>
-</form>
+      <!-- Apellidos — two columns -->
+      <div class="fields-row">
+        <div class="field-group">
+          <div class="input-wrapper">
+            <input
+              type="text"
+              id="primerApellido"
+              [(ngModel)]="usuario.primerApellido"
+              name="primerApellido"
+              required
+              placeholder=" "
+              autocomplete="family-name"
+            />
+            <label for="primerApellido">Primer Apellido</label>
+            <div class="input-line"></div>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <div class="input-wrapper">
+            <input
+              type="text"
+              id="segundoApellido"
+              [(ngModel)]="usuario.segundoApellido"
+              name="segundoApellido"
+              required
+              placeholder=" "
+            />
+            <label for="segundoApellido">Segundo Apellido</label>
+            <div class="input-line"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Divider -->
+      <div class="section-divider">
+        <span class="divider-label">Contacto</span>
+      </div>
+
+      <!-- Teléfono + Email — two columns -->
+      <div class="fields-row">
+        <div class="field-group">
+          <div class="input-wrapper">
+            <input
+              type="text"
+              id="telefono"
+              [(ngModel)]="usuario.telefono"
+              name="telefono"
+              required
+              placeholder=" "
+              autocomplete="tel"
+            />
+            <label for="telefono">Teléfono</label>
+            <div class="input-line"></div>
+            <span class="input-icon">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M2 4.5A2.5 2.5 0 0 1 4.5 2h1.372c.517 0 .968.349 1.1.851l1.07 4.277a1.1 1.1 0 0 1-.32 1.088L6.56 9.348a9.642 9.642 0 0 0 4.093 4.093l1.132-1.162a1.1 1.1 0 0 1 1.088-.32l4.277 1.07c.502.132.851.583.851 1.1V15.5A2.5 2.5 0 0 1 15.5 18C7.492 18 2 12.508 2 4.5Z"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <div class="input-wrapper">
+            <input
+              type="email"
+              id="email"
+              [(ngModel)]="usuario.email"
+              name="email"
+              required
+              placeholder=" "
+              autocomplete="email"
+            />
+            <label for="email">Correo electrónico</label>
+            <div class="input-line"></div>
+            <span class="input-icon">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="4" width="16" height="12" rx="2"/>
+                <path d="m2 7 8 5 8-5"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Divider -->
+      <div class="section-divider">
+        <span class="divider-label">Datos adicionales</span>
+      </div>
+
+      <!-- Fecha de Nacimiento — full row -->
+      <div class="field-group field-full">
+        <div class="input-wrapper">
+          <input
+            type="date"
+            id="fechaNacimiento"
+            [(ngModel)]="usuario.fechaNacimiento"
+            name="fechaNacimiento"
+            required
+          />
+          <label for="fechaNacimiento" class="label-date-active">Fecha de Nacimiento</label>
+          <div class="input-line"></div>
+          <span class="input-icon">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="2" y="4" width="16" height="14" rx="2"/>
+              <path d="M6 2v3M14 2v3M2 9h16"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="form-actions">
+        <button type="button" class="btn-ghost">Cancelar</button>
+        <button type="submit" class="btn-primary" [disabled]="userForm.invalid">
+          <span class="btn-text">Guardar usuario</span>
+          <span class="btn-icon">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 10h12M10 4l6 6-6 6"/>
+            </svg>
+          </span>
+          <span class="btn-shimmer"></span>
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>
